@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <base target="_top">
+        <style>
+            .inputtext {
+                width: 100%;
+                vertical-align: middle;
+                margin: 5px 10px 5px 0;
+                padding: 10px;
+                background-color: #ffffff;
+                border: 2px solid #000;
+                border-radius: 20px;
+                box-sizing: border-box;
+            }
+
+            .button {
+                width: 100%;
+                vertical-align: middle;
+                margin: 5px 10px 5px 0;
+                padding: 10px;
+                background-color: #8049FF;
+                border: 2px solid #000;
+                border-radius: 20px;
+                box-sizing: border-box;
+                text-transform: uppercase;
+                color: white;
+            }
+
+            div {
+                font-family: arial;
+                font-weight: bold;
+            }
+
+            #msg {
+                color: #000000;
+            }
+
+            body {
+                overflow-y: hidden;
+                /* Hide vertical scrollbar */
+                overflow-x: hidden;
+                /* Hide horizontal scrollbar */
+            }
+        </style>
+    </head>
+    <body>
+        <center>
+            <center>
+                <div class="div1">
+                    <form name="myform" method="post">
+                        <input type="text" name="uname" class="inputtext" autocomplete="off" placeholder="username">
+                        <br>
+                        <input type="password" name="pass" class="inputtext" autocomplete="off" placeholder="password">
+                        <br>
+                        <div id="msg"></div>
+                        <br>
+                        <input type="button" class="button" name="log" id="logbutton" value="Login" onclick="login()">
+                        <br><br>
+                    </form>
+                </div>
+            </center>
+        </center>
+        <script type="text/javascript">
+            //App Script URL
+            const url = "https://script.google.com/macros/s/AKfycbza0z-ss1jSGRYnex8G7qPRrjFY5QeTg9LW8TecwskxPkm589qMjJ541xOxroSo6S63/exec"; //Change API URL    
+            function login() {
+                const user = document.forms["myform"]["uname"].value;
+                const pass = document.forms["myform"]["pass"].value;
+                const obj = {
+                    userID: user,
+                    pwd: pass
+                };
+                fetch(url, {
+    method: "POST",
+    body: JSON.stringify(obj)
+  })
+    .then((r) => r.text())
+    .then((data) => {
+      //popup(data);
+      console.log(data);
+      //readdata();
+    });
+
+  //$("#btn-updatedata").addClass("d-none");
+  // $("#btn-senddata").removeClass("d-none");
+  //$("#btn-close").click();
+
+
+
+                // if (user == "stv" && pass == "1234") {
+                //     window.open('https://drive.google.com/drive/folders/1gx3k7N_UMRUY1Y7rpUaSo_LlczGCyFmS?usp=sharing', '_blank');
+                // }
+                // else {
+                //     document.getElementById("msg").innerHTML = "ชื่อผู้ใช้ หรือรหัสผ่านไม่ถูกต้อง";
+                // }
+            }
+
+        </script>
+    </body>
+</html>
