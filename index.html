@@ -2,6 +2,10 @@
 <html>
     <head>
         <base target="_top">
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Login</title>
         <style>
             .inputtext {
                 width: 100%;
@@ -19,8 +23,8 @@
                 vertical-align: middle;
                 margin: 5px 10px 5px 0;
                 padding: 10px;
-                background-color: #8049FF;
-                border: 2px solid #000;
+                background-color: #ff49c2;
+                border: 2px solid #e2036b;
                 border-radius: 20px;
                 box-sizing: border-box;
                 text-transform: uppercase;
@@ -48,7 +52,7 @@
         <center>
             <center>
                 <div class="div1">
-                    <form name="myform" method="post">
+                    <form name="myform" method="POST">
                         <input type="text" name="uname" class="inputtext" autocomplete="off" placeholder="username">
                         <br>
                         <input type="password" name="pass" class="inputtext" autocomplete="off" placeholder="password">
@@ -72,28 +76,14 @@
                     pwd: pass
                 };
                 fetch(url, {
-    method: "POST",
-    body: JSON.stringify(obj)
-  })
-    .then((r) => r.text())
-    .then((data) => {
-      //popup(data);
-      console.log(data);
-      //readdata();
-    });
-
-  //$("#btn-updatedata").addClass("d-none");
-  // $("#btn-senddata").removeClass("d-none");
-  //$("#btn-close").click();
-
-
-
-                // if (user == "stv" && pass == "1234") {
-                //     window.open('https://drive.google.com/drive/folders/1gx3k7N_UMRUY1Y7rpUaSo_LlczGCyFmS?usp=sharing', '_blank');
-                // }
-                // else {
-                //     document.getElementById("msg").innerHTML = "ชื่อผู้ใช้ หรือรหัสผ่านไม่ถูกต้อง";
-                // }
+                    method: "POST",
+                    body: JSON.stringify(obj)
+                })
+                .then((r) => r.text())
+                .then((data) => {
+                    alert(data);
+                    document.forms["myform"].reset()
+                })
             }
 
         </script>
