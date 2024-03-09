@@ -80,7 +80,7 @@
                 })
                 .then((r) => r.text())
                 .then((data) => {
-                    alert(data);
+                    document.querySelector("#msg").innerText = data
                     document.forms["myform"].reset()
                 })
             }
